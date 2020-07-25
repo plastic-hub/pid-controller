@@ -8,13 +8,8 @@
 #include "common/timer.h"
 
 class DirectionSwitch;
-class VFD;
-class AutoReverse;
-class RMotorControl;
-class AutoReverseMode;
 class CurrentSensor;
 class Status;
-class ExtrusionReplay;
 class App : public Addon
 {
 
@@ -22,13 +17,8 @@ public:
     App();
 
     DirectionSwitch *dirSwitch;
-    VFD *vfd;
-    AutoReverse *autoReverse;
-    AutoReverseMode *aMode;
     CurrentSensor *cSensor;
     Status *status;
-    ExtrusionReplay *exReplay;
-
     Addon *byId(short id);
 
     short setup();
@@ -38,11 +28,7 @@ public:
     short ok();
 
     void loop_service();
-    void loop_shredding();
-    void auto_reverse();
     
-    void loop_extruding();
-    void _loop_motor_manual(bool jamDetection);
     void loop_addons();
     void setup_addons();    
     void onDidSetupAddons();
@@ -72,39 +58,10 @@ public:
     short setOverload(short val);
     short overloaded;
 
-    enum SHRED_STATE
-    {
-        WAITING = 0,
-        INIT = 1,
-        POWERED = 2,
-        STARTED = 3,
-        SHREDDING = 6,
-        UNPOWERED = 7,
-        DONE = 8,
-        CANCELLING = 10,
-        JAMMED = 11,
-        REVERSING = 12,
-        REVERSED = 13,
-        STOPPING = 14,
-        FORWARDING = 15,
-        CANCELLED = 16,
-        STUCK = 17
-    };
-    
-    short shredState;
-    short shredStateLast;
-    short shredCancelState;
-    short jamCounter;
-    short setShredState(short newState);
-    bool isAutoReversing();
-
     enum APP_STATE
     {
         RESET = 0,
-        // SHREDDING = 1,
-        ERROR = 5,
-        REPLAY = 6,
-        RECORD = 7
+        ERROR = 5        
     };
 
     short _state;
