@@ -1,6 +1,6 @@
 # Multichannel PID controller
 
-Purpose of this PID controller is to lower overall amperage by cycling periodically through SSRs
+Purpose of this PID controller is to lower overall amperage by cycling periodically through SSRs.
 
 This is based on [osPID](http://ospid.com/blog/download/)
 
@@ -10,11 +10,10 @@ This is based on [osPID](http://ospid.com/blog/download/)
 
 ![](./vendor/controllino/mega.jpg)
 
-- OLED & keypad control
+- Optional: OLED & keypad control
 - 8 channels
-- Modbus
+- Optional: Modbus
 - TC sensor module, MAX6675 | MAX31855
-
 
 ## Features
 
@@ -27,3 +26,14 @@ This is based on [osPID](http://ospid.com/blog/download/)
 
 - Set max Amp
 - Set max/min heat time per cell/partition
+
+## Milestones / Todos
+
+- [ ] Check/Simulate performance bottle necks for Mega
+- [ ] Integrate PID/Auto-tune
+   - [ ] EEprom storage ?
+- [ ] Debug interface via RS485
+- [ ] Data - reader via RS232 (Matlab)
+- [ ] Configuration (remote / local) -> Control-Freak - HMI
+- [ ] Model testing/verification
+
