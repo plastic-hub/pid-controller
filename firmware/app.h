@@ -28,7 +28,7 @@ public:
     short ok();
 
     void loop_service();
-    
+    void loop_com();
     void loop_addons();
     void setup_addons();    
     void onDidSetupAddons();
@@ -52,12 +52,10 @@ public:
 
     millis_t loopTS;
     millis_t wait;
+    millis_t comTS;
     millis_t waitTS;
     Timer<10, millis> timer; // 10 concurrent tasks, using micros as resolution
-    millis_t lastJam;
-    short setOverload(short val);
-    short overloaded;
-
+    
     enum APP_STATE
     {
         RESET = 0,

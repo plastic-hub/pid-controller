@@ -89,5 +89,85 @@ short App::loop()
     timer.tick();
     now = millis();
     loop_addons();
+    loop_com();
     delay(LOOP_DELAY);
+}
+
+void App::loop_com()
+{
+    if (millis() - comTS > 300)
+    {
+#if defined(HAS_BRIDGE) && defined(HAS_SERIAL)
+        PPSerial::Message *msg = serialBridge->read();
+        if (msg)
+        {
+            switch (msg->verb)
+            {
+
+            case Bridge::EC_METHOD:
+            {
+                char *strings[3];
+                char *ptr = NULL;
+                byte index = 0;
+
+                ptr = strtok(msg->payload, ":");
+
+                while (ptr != NULL && index < 4)
+                {
+                    strings[index] = ptr;
+                    index++;
+                    ptr = strtok(NULL, ":");
+                }
+                
+                int id = atoi(strings[0]);
+                char *_method = strings[1];
+
+                SKeyVal *method = VSL::instance()->hasMethod(id, _method);
+                if (method)
+                {
+                    int arg = atoi(strings[2]);
+                    Addon *addon = (Addon *)method->instance;
+                    AddonFnPtr ptr = method->mPtr;
+                    short ret = (addon->*ptr)(arg);
+
+                    if (TEST(msg->flags, Bridge::STATE))
+                    {
+                        #ifdef HAS_STATES
+                            this->appState(0);
+                        #endif
+                    }
+                    else if (TEST(msg->flags, Bridge::RECEIPT))
+                    {
+                        #ifdef BRIDGE_HAS_RESPONSE
+                            const char *response = Bridge::CreateResponse(msg->id, 0, ret);
+                            Serial.write(response);
+                        #endif
+                    }
+                    if (TEST(msg->flags, Bridge::DEBUG))
+                    {
+                       // Serial.println("Called command");
+                    }
+                }
+                else
+                {
+                    VSL::instance()->debug();
+                    if (TEST(msg->flags, Bridge::DEBUG))
+                    {
+                        /*
+                        Serial.print("Incoming message, cant find class & method ");
+                        Serial.print(_class);
+                        Serial.print(":");
+                        Serial.print(_method);
+                        Serial.print("\n");
+                        */
+                    }
+                }
+                break;
+            }
+            }
+            msg->payload = NULL;
+        }
+#endif
+        comTS = millis();
+    }
 }
