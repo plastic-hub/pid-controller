@@ -19,7 +19,23 @@ enum PARTITION_STATE
   HEATING = 1
   AUTO_TUNING = 2,
   AUTO = 3,
-  DISABLED = 4
+  DISABLED = 4,
+  ERROR = 10
+};
+
+enum CONTROL_MODE 
+{
+  OP_PANEL = 1, // OLED & Keypad
+  EXTERN = 2    // RS485
+};
+
+enum RUN_MODE
+{
+  PID = 0,      // Normal PID mode
+  MANUAL = 1,   // Debugging / Operator 
+  TEST = 2,     // Run remote tests
+  ERROR = 3     
+  LOCKED = 4 
 };
 
 enum ADDON_FLAGS

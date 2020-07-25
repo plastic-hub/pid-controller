@@ -68,6 +68,9 @@ public:
     enum APP_STATE
     {
         RESET = 0,
+        REMOTE = 2,
+        LOCAL = 3,
+        TEST = 3,
         ERROR = 5        
     };
 
