@@ -21,17 +21,8 @@ App::App() : Addon("APP", APP, 1 << STATE),
 #ifdef HAS_DIRECTION_SWITCH
              dirSwitch(new DirectionSwitch()),
 #endif
-#ifdef HAS_AUTO_REVERSE_MODE
-             aMode(new AutoReverseMode(AUTO_REVERSE_MODE_UP_PIN, AUTO_REVERSE_MODE_DOWN_PIN)),
-#endif
-#ifdef HAS_VFD
-             vfd(new VFD()),
-#endif
 #ifdef HAS_STATUS
              status(new Status(STATUS_ERROR_PIN, STATUS_OK_PIN)),
-#endif
-#ifdef HAS_EXTRUSION_REPLAY
-             exReplay(new ExtrusionReplay(EXTRUSION_RECORD_PIN, EXTRUSION_REPLAY_PIN)),
 #endif
              cSensor(new CurrentSensor(CURRENT_SENSOR_PIN)),
              shredStateLast(0),
@@ -71,11 +62,7 @@ short App::setup()
 #endif
     debugTS = 0;
     loopTS = 0;
-    shredState = 0;
-    overloaded = 0;
-    _state = 0;
-    jamCounter = 0;
-    lastJam = 0;
+    _state = 0;    
 #ifdef DEBUG_MEM
     timer.every(
         5000, [](App *app) -> void {
@@ -95,8 +82,6 @@ void App::onError(int error)
 
         _state = ERROR;
     }
-
-    vfd->stop();
 }
 
 short App::loop()
@@ -104,6 +89,5 @@ short App::loop()
     timer.tick();
     now = millis();
     loop_addons();
-    loopShred();
     delay(LOOP_DELAY);
 }

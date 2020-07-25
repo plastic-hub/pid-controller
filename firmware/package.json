@@ -1,9 +1,9 @@
 {
-  "name": "@plastichub/firmware",
-  "version": "0.7",
-  "description": "- debug flags - addon callbacks & callback masks - addon memory - addon I2C - addon sensor array - addon lifecycle methods",
+  "name": "@plastichub/pid-firmware",
+  "version": "0.1",
+  "description": "",
   "main": "index.js",
-  "cid": 47,
+  "cid": 0,
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
