@@ -13,6 +13,13 @@ enum BOARD
   MEGA
 };
 
+enum PARTITION_STATE
+{
+  OFF = 0,
+  HEATING = 1
+  AUTO_TUNING = 2,
+  AUTO = 3
+};
 
 enum ADDON_FLAGS
 {

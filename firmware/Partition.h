@@ -7,13 +7,18 @@
 #include "./time.h"
 
 /***
- * 
- * 
- * */
+ * The heating cell
+ */
 class Partition
 {
-    public:
-        
+public:
+    ushort state;         // type: PARTITION_STATE
+private:
+    ushort pin;           // GPIO
+    ushort id;            
+    const char name[124]; // for logging
+
+    millis_t last_active; //
 };
 
 #endif
