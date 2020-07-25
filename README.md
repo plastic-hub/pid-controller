@@ -37,3 +37,15 @@ This is based on [osPID](http://ospid.com/blog/download/)
 - [ ] Configuration (remote / local) -> Control-Freak - HMI
 - [ ] Model testing/verification
 
+## Edge cases / Errors
+
+- [ ] PID-Partition Timeout : PID didn't reach target with limits
+- [ ] PID/Partition Overshooting : PID or operator malfunction
+- [ ] PID Auto-tuning timeout : autotuning too long
+- [ ] PID/Partition interference : partition overlap noise ?
+
+## Modes
+
+- [ ] Groups (partition groups)
+- [ ] Serial (single linked partition group)
+- [ ] Remote (HMI & control)
