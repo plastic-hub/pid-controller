@@ -14,5 +14,6 @@
 #define OPERATION_MODE_SWITCH_STR "OperationModeSwitch"
 #define APP_STR "App"
 #define STATUS_STR "Status LED"
+#define MPID_CTRL_STR "Multi - PID Controller"
 
 #endif

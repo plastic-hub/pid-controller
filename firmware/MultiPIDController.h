@@ -14,7 +14,7 @@ class Partition;
 class MultiPIDController : public Addon
 {
 public:
-    MultiPIDController() : Addon(CURRENT_SENSOR_STR, MPIDCTRL)
+    MultiPIDController() : Addon(MPID_CTRL_STR, MPIDCTRL, ADDON_STATED)
     {
         this->setFlag(DEBUG);
     }
