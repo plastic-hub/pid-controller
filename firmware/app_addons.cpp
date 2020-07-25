@@ -103,25 +103,9 @@ Addon *App::byId(short id)
 
 void App::setup_addons()
 {
-#ifdef HAS_DIRECTION_SWITCH
-    addons.push_back((Addon *)dirSwitch);
-#endif
-
-#ifdef HAS_VFD
-    addons.push_back((Addon *)vfd);
-#endif
-
-#ifdef HAS_AUTO_REVERSE_MODE
-    addons.push_back((Addon *)aMode);
-#endif
-
 #ifdef HAS_STATUS
     addons.push_back((Addon *)status);
 #endif
-#ifdef HAS_EXTRUSION_REPLAY
-    addons.push_back((Addon *)exReplay);
-#endif
-
     addons.push_back((Addon *)cSensor);
     addons.push_back((Addon *)this);
 
@@ -134,7 +118,6 @@ void App::setup_addons()
             addon->setup();
         }
     }
-
     onDidSetupAddons();
 }
 void App::loop_addons()
