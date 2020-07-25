@@ -18,7 +18,8 @@ enum PARTITION_STATE
   OFF = 0,
   HEATING = 1
   AUTO_TUNING = 2,
-  AUTO = 3
+  AUTO = 3,
+  DISABLED = 4
 };
 
 enum ADDON_FLAGS
@@ -43,6 +44,7 @@ enum ADDONS
   MODBUS_BRIDGE = 26,
   CURRENT_SENSOR = 32,
   STATUS = 33,
+  MPIDCTRL = 34,
   LAST = 64
 };
 

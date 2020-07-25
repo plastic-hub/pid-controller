@@ -18,7 +18,11 @@ private:
     ushort id;            
     const char name[124]; // for logging
 
-    millis_t last_active; //
+    // computation memory
+    millis_t last_active; 
+    millis_t last_duration;
+
+    Partition* next;      // for prio/linking
 };
 
 #endif

@@ -10,6 +10,9 @@
 class DirectionSwitch;
 class CurrentSensor;
 class Status;
+class PPSerial;
+class ModbusBridge;
+
 class App : public Addon
 {
 
@@ -19,6 +22,10 @@ public:
     DirectionSwitch *dirSwitch;
     CurrentSensor *cSensor;
     Status *status;
+
+    PPSerial *serialBridge;
+    ModbusBridge *modbusBridge;
+
     Addon *byId(short id);
 
     short setup();
@@ -29,6 +36,8 @@ public:
 
     void loop_service();
     void loop_com();
+    void loop_simulate();
+    void loop_pid();
     void loop_addons();
     void setup_addons();    
     void onDidSetupAddons();

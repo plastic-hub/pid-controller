@@ -1,16 +1,39 @@
 #include <Vector.h>
 #include <Streaming.h>
 #include <Arduino.h>
-
 #include "app.h"
 #include "features.h"
 #include <MemoryFree.h>
-
 #include "Version.h"
 
 // #define DEBUG_MEM
 
 static Addon *addonsArray[10];
+
+#ifdef HAS_STATES
+short App::appState(short nop)
+{
+    uchar s = addons.size();
+    uchar si = 0;
+    String out = "";
+    uchar l = numByFlag(STATE);
+    for (uchar i = 0; i < s; i++)
+    {
+        Addon *addon = addons[i];
+        if (!!(addon->hasFlag(STATE)))
+        {
+            si++;
+            out += addon->state();
+            if (si < l)
+            {
+                out += ",";
+            }
+        }
+    }
+    const char *response = Bridge::CreateResponse(STATE_RESPONSE_CODE, 0, out.c_str());
+    Serial.write(response);
+}
+#endif
 
 short App::ok()
 {
@@ -18,15 +41,10 @@ short App::ok()
 }
 
 App::App() : Addon("APP", APP, 1 << STATE),
-#ifdef HAS_DIRECTION_SWITCH
-             dirSwitch(new DirectionSwitch()),
-#endif
 #ifdef HAS_STATUS
              status(new Status(STATUS_ERROR_PIN, STATUS_OK_PIN)),
 #endif
-             cSensor(new CurrentSensor(CURRENT_SENSOR_PIN)),
-             shredStateLast(0),
-             shredCancelState(0)
+             cSensor(new CurrentSensor(CURRENT_SENSOR_PIN))
 {
 }
 
@@ -90,6 +108,7 @@ short App::loop()
     now = millis();
     loop_addons();
     loop_com();
+    loop_pid();
     delay(LOOP_DELAY);
 }
 
