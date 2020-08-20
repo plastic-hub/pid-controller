@@ -29,9 +29,9 @@ This is based on [osPID](http://ospid.com/blog/download/)
 
 ## Milestones / Todos
 
-- [ ] Check/Simulate performance bottle necks for Mega
+- [x] Check/Simulate performance bottle necks for Mega
 - [ ] Integrate PID/Auto-tune
-   - [ ] EEprom storage ?
+  - [ ] EEprom storage ?
 - [ ] Debug interface via RS485
 - [ ] Data - reader via RS232 (Matlab)
 - [ ] Configuration (remote / local) -> Control-Freak - HMI
@@ -49,3 +49,15 @@ This is based on [osPID](http://ospid.com/blog/download/)
 - [ ] Groups (partition groups)
 - [ ] Serial (single linked partition group)
 - [ ] Remote (HMI & control)
+
+## PP/PH
+
+New parameters
+
+- [ ] Ramp-time
+- [ ] Amp Budget
+
+### References
+
+- [PID research](https://github.com/plastic-hub/research#pid-control)
+
