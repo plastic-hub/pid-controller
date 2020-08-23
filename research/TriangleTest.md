@@ -13,6 +13,7 @@ We test the behaviour, times and temperature of 3 cartridge heaters on a sheetpr
 - Stronger air circulation in the workshop
 - PID : Inkbird - 100VH
 - Cartridge heater : 12mm OD / 8cm L
+- Extra probe to PID probe difference around 15 degc (at 220degc)
 - Addtional probe to measure frame and wool temperatures
 - Press Plate : [EN AW 5083 [AlMg4,5Mn0,7]](https://gleich.de/us/products/g-al-c250/), 10mm
 - Insulation wol: [RockWool - ProRox WM960](https://rti.rockwool.com/en-in/products/industrial/prorox-wm-960/?selectedCat=industrial%20-%20india)
@@ -40,15 +41,18 @@ We test the behaviour, times and temperature of 3 cartridge heaters on a sheetpr
 - at 210C, it took 3:02 mins to increase by one degc | Outer temperture : 35 degc | Frame-temperature : 82degc
 - at 220C, it took 12:05 mins to increase by one degc | Outer temperture : 36 degc | Frame-temperature : 84degc
 
+- after 220C, it takes **12:05 - 18 mins** to increase by one degc | Outer temperture : 36 degc | Frame-temperature : 84degc
+
 **Total :  Time to heat from 33 degC to 210degc:  2:15 h::mm**
 
-**Total :  Time to heat from 33 degC to 220degc:  3:18 h::mm**
+**Total :  Time to heat from 33 degC to 220degc:  3:28 h::mm**
 
 ---
 
 **Times to increase temperature (turn off heating)**
 
-- at 220degc, it took to cool down by degc
+- at 214degc (at the PID probe), it took 0:17 secs to cool down by 1 degc !
+- at 205degc (at the extra probe - on the heater block), it took 0:21 secs to cool down by 1 degc !
 
 ---
 
@@ -61,4 +65,3 @@ We test the behaviour, times and temperature of 3 cartridge heaters on a sheetpr
 - times: After, 200 degc (at 33 degc room temp), the system has a really hard time to increase temperature at all, especially strong wind/air circulation at the perimeter affects this times significantly
 - performance: it's unlikely to go beyond 220/230 degc, especially in colder environments
 - see [more](../network) remarks from the network
-
