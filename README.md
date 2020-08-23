@@ -30,6 +30,7 @@ This is based on [osPID](http://ospid.com/blog/download/)
 ## Milestones / Todos
 
 - [x] Check/Simulate performance bottle necks for Mega
+- [ ] Temperature logger, serial & MaxC based
 - [ ] Integrate PID/Auto-tune
   - [ ] EEprom storage ?
 - [ ] Debug interface via RS485
