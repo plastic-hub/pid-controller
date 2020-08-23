@@ -52,12 +52,16 @@ This is based on [osPID](http://ospid.com/blog/download/)
 
 ## PP/PH
 
-New parameters
+### New parameters
 
 - [ ] Ramp-time
 - [ ] Amp Budget
 
+### New beahviours
+
+- [ ] Currently there are multiple issues surfacing regarding the sheetpress. A profile should allow to have multiple target temperature points (eg: 1 hour to hold softening point, 30 mins for holding melting point rage, 10 mins for slightly over melting point : pressing phase) with a holding & ramp time each.
+- [ ] The user should be able to adjust these profiles per flake size. For that we should also study the effects of various flake sizes regarding stresses created in the sheets.
+
 ### References
 
 - [PID research](https://github.com/plastic-hub/research#pid-control)
-
