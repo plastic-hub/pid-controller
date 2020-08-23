@@ -65,3 +65,5 @@ We test the behaviour, times and temperature of 3 cartridge heaters on a sheetpr
 - times: After, 200 degc (at 33 degc room temp), the system has a really hard time to increase temperature at all, especially strong wind/air circulation at the perimeter affects this times significantly
 - performance: it's unlikely to go beyond 220/230 degc, especially in colder environments
 - see [more](../network) remarks from the network
+- serial partition heating: with a window of 18 secs to cool down one degc (heater off), we might have still a chance with better heat containment as recommended in the build remarks
+
