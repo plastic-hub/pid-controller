@@ -66,3 +66,22 @@ This is based on [osPID](http://ospid.com/blog/download/)
 ### References
 
 - [PID research](https://github.com/plastic-hub/research#pid-control)
+
+#### [PP Print-Head System](https://github.com/plastic-hub/lydia-print-head)
+
+According to the manual [OMRON - E5DC / E5DC-B](http://omrondoc.ru/C/H175-E1-08.pdf), we have
+
+- 2 control points
+- Internal Set Point*1
+- Manual MV
+- Remote SP Monitor
+- MV Monitor (Heating & Cooling)
+- Dead Band
+- Derivative Time (Cooling & Heating)
+- Integral Time (Cooling & Heating)
+- Hysteresis (Cooling & Heating)
+- Control Period (Heating)
+
+and lots more settings to influence heating, ramp and cooling behavior via Modbus.
+
+```@todo```, repeat amp budgets tests with tis controller
