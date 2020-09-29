@@ -30,11 +30,11 @@ This is based on [osPID](http://ospid.com/blog/download/)
 ## Milestones / Todos
 
 - [x] Check/Simulate performance bottle necks for Mega
-- [ ] Temperature logger, serial & MaxC based
+- [x] Temperature logger, serial & MaxC based
 - [ ] Integrate PID/Auto-tune
   - [ ] EEprom storage ?
-- [ ] Debug interface via RS485
-- [ ] Data - reader via RS232 (Matlab)
+- [x] Debug interface via RS485
+- [x] Data - reader via RS232 (Matlab)
 - [ ] Configuration (remote / local) -> Control-Freak - HMI
 - [ ] Model testing/verification
 
@@ -50,6 +50,7 @@ This is based on [osPID](http://ospid.com/blog/download/)
 - [ ] Groups (partition groups)
 - [ ] Serial (single linked partition group)
 - [ ] Remote (HMI & control)
+- [ ] Master controller, only. Eg: control other PIDs via Modbus
 
 ## PP/PH
 
@@ -57,6 +58,7 @@ This is based on [osPID](http://ospid.com/blog/download/)
 
 - [ ] Ramp-time
 - [ ] Amp Budget
+- [ ] Sub SP hold time
 
 ### New behaviours
 
@@ -65,7 +67,7 @@ This is based on [osPID](http://ospid.com/blog/download/)
 
 ### Modbus Implementation
 
-- [ ] Should implement broadcast queries : Status, SP(s) & PV
+- [ ] Should implement broadcast queries : Status (Run/Alarm,...) , SP(s) & PV
 
 ### References
 
