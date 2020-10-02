@@ -91,3 +91,11 @@ According to the manual [OMRON - E5DC / E5DC-B](http://omrondoc.ru/C/H175-E1-08.
 and lots more settings to influence heating, ramp and cooling behavior via Modbus.
 
 ```@todo```, repeat amp budgets tests with tis controller
+
+### Hydra tests/experiments
+
+- [ ] calc. heat transfer, x & square (with screw | without screw | loaded)
+- [ ] Inkbird vs Rex
+- [ ] test TC mount variants
+- [ ] different man. PID params (soak, hysteresis, ..)
+
