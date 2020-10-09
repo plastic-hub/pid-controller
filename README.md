@@ -36,7 +36,7 @@ This is based on [osPID](http://ospid.com/blog/download/)
 - [x] Debug interface via RS485
 - [x] Data - reader via RS232 (Matlab)
 - [ ] Configuration (remote / local) -> Control-Freak - HMI
-- [ ] Model testing/verification
+- [-] Model testing/verification
 
 ## Edge cases / Errors
 
@@ -50,7 +50,7 @@ This is based on [osPID](http://ospid.com/blog/download/)
 - [ ] Groups (partition groups)
 - [ ] Serial (single linked partition group)
 - [ ] Remote (HMI & control)
-- [ ] Master controller, only. Eg: control other PIDs via Modbus
+- [x] Master controller, only. Eg: control other PIDs via Modbus
 
 ## PP/PH
 
@@ -67,35 +67,18 @@ This is based on [osPID](http://ospid.com/blog/download/)
 
 ### Modbus Implementation
 
-- [ ] Should implement broadcast queries : Status (Run/Alarm,...) , SP(s) & PV
+- [-] Should implement broadcast queries : Status (Run/Alarm,...) , SP(s) & PV
 
 ### References
 
 - [PID research](https://github.com/plastic-hub/research#pid-control)
 
-#### [PP Print-Head System](https://github.com/plastic-hub/lydia-print-head)
-
-According to the manual [OMRON - E5DC / E5DC-B](http://omrondoc.ru/C/H175-E1-08.pdf), we have
-
-- 2 control points
-- Internal Set Point*1
-- Manual MV
-- Remote SP Monitor
-- MV Monitor (Heating & Cooling)
-- Dead Band
-- Derivative Time (Cooling & Heating)
-- Integral Time (Cooling & Heating)
-- Hysteresis (Cooling & Heating)
-- Control Period (Heating)
-
-and lots more settings to influence heating, ramp and cooling behavior via Modbus.
-
-```@todo```, repeat amp budgets tests with tis controller
-
 ### Hydra tests/experiments
 
-- [ ] calc. heat transfer, x & square (with screw | without screw | loaded)
-- [ ] Inkbird vs Rex
-- [ ] test TC mount variants
-- [ ] different man. PID params (soak, hysteresis, ..)
+- [x] calc. heat transfer, x & square (with screw | without screw | loaded)
+- [x] Inkbird vs Rex
+- [x] PID param transfer from E5 to Inkbird, Rexc : NO
+- [x] test TC mount variants
+- [x] different man. PID params (soak, hysteresis, ..)
+
 
